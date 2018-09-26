@@ -17,6 +17,9 @@ public class Main : MonoBehaviour
     public int _scoreValue = 0;
     public int _highScoreValue = 0;
 
+    public bool _isAlienShipCreated = false;
+    public GameObject _alienShip;
+
     // Use this for initialization
     void Start()
     {
@@ -176,6 +179,12 @@ public class Main : MonoBehaviour
         if(Random.Range(0,150) > 147)
         {
             GenerateAsteroid();
+        }
+
+        if(_scoreValue > 1000 && _isAlienShipCreated == false)
+        {
+            _isAlienShipCreated = true;
+            _alienShip.GetComponent<AlienShip>().SpawnShip();
         }
     }
 }
